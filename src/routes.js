@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 
 import Layout from './components/Layout/Layout'
 import Home from './containers/Home/Home'
-import CharView from './containers/CharView'
+import CharView from './containers/CharView/CharView'
 
 const Routes = () => {
 	return (

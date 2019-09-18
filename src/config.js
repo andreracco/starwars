@@ -1,7 +1,7 @@
-const IMG_URL = 'https://starwars-visualguide.com/assets/img/characters/'
-const API_PEOPLE_URL = 'https://swapi.co/api/people'
+const IMG_PATH = '/images/people'
+const API_URL = 'https://swapi.co/api'
 
 export {
-    IMG_URL,
-    API_PEOPLE_URL
+    IMG_PATH,
+    API_URL
 }

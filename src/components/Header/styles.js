@@ -1,7 +1,7 @@
 const styles = theme => ({ 
     root: {
         width: '100%',
-        height: 120,
+        height: 100,
         display: 'flex',
         justifyContent: 'center',
         backgroundColor: theme.palette.secondary.main, //'#002A2F',
@@ -9,7 +9,7 @@ const styles = theme => ({
     },
 
     logo: {
-        height: 120,
+        height: 100,
         padding: 8
     }
 })

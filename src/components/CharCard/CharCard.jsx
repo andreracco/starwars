@@ -2,10 +2,8 @@ import React from 'react'
 import styles from './styles'
 import { makeStyles } from '@material-ui/styles'
 import { Card, CardMedia, CardContent, CardActionArea } from '@material-ui/core'
-
 import { withRouter } from 'react-router-dom'
-
-import { IMG_URL } from '../../config'
+import { IMG_PATH } from '../../config'
 
 const useStyles = makeStyles(styles, { name: 'CharCard' })
 
@@ -21,7 +19,7 @@ const CharCard = ({ history, id, char }) => {
 			<CardActionArea onClick={handleCardClick}>
 				<CardMedia
 					className={classes.image}
-					image={`${IMG_URL}${id}.jpg`}
+					image={`${IMG_PATH}/${id}.jpg`}
 					title={char.name}
 				/>
 				<CardContent classes={{ root: classes.content }}>

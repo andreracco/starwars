@@ -3,7 +3,7 @@ const styles = theme => ({
         margin: 'auto',
         maxWidth: 960,
         marginBottom: 56,
-        minHeight: '70vh'
+        minHeight: '73vh'
     },
 
     content: {
@@ -23,11 +23,6 @@ const styles = theme => ({
             color: theme.palette.secondary.dark,
             boxShadow: [[0, 0, 4, 0, theme.palette.primary.main]]
         }
-    },
-
-    loading: {
-        color: '#ffac00',
-        margin: 'auto'
     },
 
     buttonContainer: {

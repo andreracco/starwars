@@ -1,25 +1,43 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import CharCard from '../../components/CharCard/CharCard'
 import { Button } from '@material-ui/core'
 import { withRouter } from 'react-router-dom'
 
 import styles from './styles'
 import { makeStyles } from '@material-ui/styles'
-import GetPeople from '../../resource/GetPeople'
-import { CircularProgress } from '@material-ui/core'
-import TablePagination from '@material-ui/core/TablePagination'
+import axios from 'axios'
+import { API_URL } from '../../config'
+import { getIdFromURL } from '../../common/utils'
+import Loading from '../../components/Loading/Loading'
 
 const useStyles = makeStyles(styles, { name: 'Home' })
 
 const Home = () => {
 	const classes = useStyles()
-	const { people, pageInfo, loading, loadMore } = GetPeople()
+
+	const [people, setPeople] = useState([])
+	const [loading, setLoading] = useState(false)
+	const [page, setPage] = useState(1)
+	const [pageInfo, setPageInfo] = useState([])
+
+	useEffect(() => {
+		setLoading(true)
+		axios.get(`${API_URL}/people?page=${page}`).then(res => {
+			setPageInfo([...pageInfo, res.data])
+			setPeople([...people, ...res.data.results])
+			setLoading(false)
+		})
+	}, [page])
+
+	const loadMore = () => {
+		setPage(page + 1)
+	}
 
 	return (
 		<div className={classes.root}>
 			<div className={classes.content}>
-				{people.map((char, index) => {
-					const id = index >= 16 ? index + 2 : index + 1
+				{people.map(char => {
+					const id = getIdFromURL(char.url)
 					return <CharCard key={id} id={id} char={char} />
 				})}
 
@@ -27,21 +45,15 @@ const Home = () => {
 			</div>
 			<div className={classes.buttonContainer}>
 				{loading ? (
-					<CircularProgress className={classes.loading} />
+					<Loading />
 				) : (
-					<Button className={classes.button} onClick={loadMore}>
-						LOAD MORE
-					</Button>
+					page < 10 && (
+						<Button className={classes.button} onClick={loadMore}>
+							LOAD MORE
+						</Button>
+					)
 				)}
 			</div>
-			<TablePagination
-				component='nav'
-				page={0}
-				rowsPerPageOptions={[]}
-				rowsPerPage={10}
-				count={pageInfo[0] && pageInfo[0].count}
-				onChangePage={() => {}}
-			/>
 		</div>
 	)
 }
