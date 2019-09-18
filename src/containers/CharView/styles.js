@@ -1,5 +1,3 @@
-import { breakpoints } from '@material-ui/system'
-
 const styles = theme => ({
 	root: {
 		margin: 'auto',

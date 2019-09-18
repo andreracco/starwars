@@ -18,12 +18,10 @@ const Home = () => {
 	const [people, setPeople] = useState([])
 	const [loading, setLoading] = useState(false)
 	const [page, setPage] = useState(1)
-	const [pageInfo, setPageInfo] = useState([])
 
 	useEffect(() => {
 		setLoading(true)
 		axios.get(`${API_URL}/people?page=${page}`).then(res => {
-			setPageInfo([...pageInfo, res.data])
 			setPeople([...people, ...res.data.results])
 			setLoading(false)
 		})

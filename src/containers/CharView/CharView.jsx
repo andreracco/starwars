@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect, useReducer } from 'react'
+import { useEffect, useReducer } from 'react'
 import axios from 'axios'
 import { API_URL } from '../../config'
 import styles from './styles'
