@@ -1,11 +1,11 @@
 const styles = theme => ({ 
     root: {
-        margin: [[20, 'auto']],
-        maxWidth: 960,
+        width: 'auto',
         display: 'flex',
         flexDirection: 'column',
-        // width: '100%',
-        // border: [[1, 'solid']]
+        backgroundColor: theme.palette.secondary.main,
+        height: '100%',
+        
     },
 })
 

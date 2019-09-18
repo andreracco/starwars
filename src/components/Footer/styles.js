@@ -1,12 +1,21 @@
 const styles = theme => ({ 
     root: {
-        fontSize: 16,
         width: '100%',
-        height: 56,
         display: 'flex',
         justifyContent: 'center',
-        borderTop: [[1, 'solid', '#afafaf']]
+        backgroundColor: theme.palette.secondary.main,
+        position: 'relative',
+        bottom: 0,
     },
+
+    text: {
+        fontSize: 12,
+        color: 'white',
+        textAlign: 'center',
+        padding: [[16, 0]],
+        maxWidth: 960,
+        width: '100%',
+    }
 })
 
 export default styles
