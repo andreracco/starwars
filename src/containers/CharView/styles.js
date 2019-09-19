@@ -14,10 +14,6 @@ const styles = theme => ({
 		borderRadius: 8,
 		backgroundColor: '#3e3e3e',
 		border: [[1, 'solid', theme.palette.primary.main]],
-
-		[theme.breakpoints.down('sm')]: {
-			height: 400
-		}
 	},
 
 	container: {

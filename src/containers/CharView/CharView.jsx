@@ -162,7 +162,8 @@ const CharView = ({ match, history }) => {
 								{state.starships.map(ship => (
 									<Grid
 										item
-										xs={12 / state.starships.length}
+										xs={12}
+										md={12 / state.starships.length}
 										className={classes.content}
 									>
 										<div className={classes.name}>
